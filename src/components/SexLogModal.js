@@ -1,8 +1,9 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
+import './SexLogModal.scss';
 
 const SexLogModal = () => (
-    <Modal show={true}>
+    <Modal className="sexlog-modal" show={true}>
         <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
