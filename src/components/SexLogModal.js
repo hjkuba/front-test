@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 import './SexLogModal.scss';
 
 const SexLogModal = (props) => (
-    <Modal className="sexlog-modal" show={true}>
+    <Modal className="sexlog-modal" bsSize="large" show={true}>
         {props.children}
     </Modal>
 );
