@@ -1,0 +1,42 @@
+@import '../styles/size_variables';
+@import '../styles/color-variables';
+
+.sexlog-header {
+  background-color: white;
+  position: relative;
+  &.modal-header {
+    padding: 0;
+  }
+  button.close {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 2px;
+    padding: 0 19px;
+    border-left: 1px solid $grey-color;
+    opacity: 1;
+    span {
+      color: $dark-grey-color;
+      font-size: 16px;
+    }
+  }
+  .modal-title {
+    color: $purple-color;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  @media(max-width: $xs-max) {
+    &.modal-header {
+      border-bottom: 2px solid $grey-color;
+    }
+  }
+
+  @media(min-width: $sm-min) {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    .modal-title {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,3 +1,23 @@
-.sexlog-modal {
+@import '../styles/size_variables';
+@import '../styles/color-variables';
 
+.sexlog-modal {
+  @media(max-width: $xs-max) {
+    .modal-dialog {
+      margin: 0;
+      .modal-content {
+        height: 100vh;
+        border: none;
+        background-color: $background-color;
+      }
+    }
+  }
+  @media(min-width: $sm-min) {
+    .modal-dialog {
+      .modal-content {
+        border: none;
+        border-radius: 5px;
+      }
+    }
+  }
 }
