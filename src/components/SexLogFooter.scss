@@ -1,0 +1,16 @@
+@import '../styles/size_variables';
+@import '../styles/color-variables';
+
+.sexlog-footer {
+  @media(max-width: $xs-max) {
+    &.modal-footer {
+      height: $mobile-footer-height;
+      display: flex;
+      width: 100%;
+      border: none;
+      padding: 0;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

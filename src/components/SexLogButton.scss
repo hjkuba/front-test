@@ -1,0 +1,11 @@
+@import '../styles/color-variables';
+@import '../styles/size_variables';
+
+.sexlog-button {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: $green-color;
+  flex-grow: 1;
+  border: none;
+}
