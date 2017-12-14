@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { SexLogModal, SexLogHeader } from './components';
+import { SexLogModal, SexLogHeader, SexLogBody,
+    PriceContainer, PlanOptionsContainer, PlanOption } from './components';
 
 class App extends Component {
     render() {
@@ -9,6 +10,19 @@ class App extends Component {
                     <SexLogHeader
                         title="Assine o Sexlog VIP"
                     />
+                    <SexLogBody>
+                        <PriceContainer
+                            currency="R$"
+                            integer="49"
+                            decimal="90"
+                            periodicy="/mês"
+                        />
+                        <PlanOptionsContainer>
+                            <PlanOption name="1 mês"/>
+                            <PlanOption name="3 meses" discount="Economize 30%"/>
+                            <PlanOption name="6 meses" discount="Economize 60%"/>
+                        </PlanOptionsContainer>
+                    </SexLogBody>
                 </SexLogModal>
             </div>
         );
