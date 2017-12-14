@@ -1,30 +1,72 @@
 import React, { Component } from 'react';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption } from './components';
+import data from './server/data.json';
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <SexLogModal>
-                    <SexLogHeader
-                        title="Assine o Sexlog VIP"
-                    />
-                    <SexLogBody>
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModal: true,
+            selectedPlan: data.plans[0],
+            modalStep: 1
+        };
+    }
+    renderPlans(plans) {
+        return plans.map((plan, index) => (
+            <PlanOption
+                selected={this.state.selectedPlan.id === plan.id}
+                key={index}
+                name={plan.name}
+                discount={plan.discount}
+                onClick={() => this.setState({selectedPlan: plan})}
+            />
+        ));
+    }
+    renderBody() {
+        switch(this.state.modalStep) {
+            case 1:
+                return (
+                    <div>
                         <PriceContainer
-                            currency="R$"
-                            integer="49"
+                            currency={this.state.selectedPlan.price.currency}
+                            integer={this.state.selectedPlan.price.integer}
                             decimal="90"
                             periodicy="/mês"
                         />
                         <PlanOptionsContainer>
-                            <PlanOption name="1 mês"/>
-                            <PlanOption name="3 meses" discount="Economize 30%"/>
-                            <PlanOption name="6 meses" discount="Economize 60%"/>
+                            { this.renderPlans(data.plans)}
                         </PlanOptionsContainer>
+                    </div>
+                )
+        }
+    }
+    renderFooter() {
+        switch(this.state.modalStep) {
+            case 1:
+                return <SexLogButton onClick={() => this.setState({modalStep: 2})}>Próximo passo: pagamento</SexLogButton>;
+            case 2:
+                return <SexLogButton>Concluir minha assinatura</SexLogButton>
+        }
+    }
+    render() {
+        return (
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <SexLogButton onClick={() => this.setState({showModal: true})}>Open Modal</SexLogButton>
+                <SexLogModal
+                    show={this.state.showModal}
+                    onHide={() => this.setState({showModal: false})}
+                >
+                    <SexLogHeader
+                        returnButton={this.state.modalStep !== 1}
+                        onReturn={() => this.setState({modalStep: this.state.modalStep - 1})}
+                        title="Assine o Sexlog VIP"
+                    />
+                    <SexLogBody>
+                        { this.renderBody() }
                     </SexLogBody>
                     <SexLogFooter>
-                        <SexLogButton>Próximo passo: pagamento</SexLogButton>
+                        { this.renderFooter() }
                     </SexLogFooter>
                 </SexLogModal>
             </div>

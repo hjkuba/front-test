@@ -152,6 +152,10 @@ module.exports = {
                         },
                     },
                     {
+                        test: /\.json$/,
+                        loader: require.resolve('json-loader')
+                    },
+                    {
                         test: /\.scss$/,
                         use: [
                             require.resolve('style-loader'),

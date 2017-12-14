@@ -20,6 +20,19 @@
       font-size: 16px;
     }
   }
+  .return-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    padding: 0 19px;
+    background-color: transparent;
+    border: none;
+    span {
+      color: $medium-grey-color;
+      font-size: 16px;
+    }
+  }
   .modal-title {
     color: $purple-color;
     text-align: center;
