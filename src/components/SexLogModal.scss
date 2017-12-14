@@ -3,9 +3,11 @@
 
 .sexlog-modal {
   @media(max-width: $xs-max) {
+    padding-left: 0 !important;
     .modal-dialog {
       margin: 0;
       .modal-content {
+        width: 100%;
         min-height: 100vh;
         border: none;
         border-bottom-left-radius: 0;
