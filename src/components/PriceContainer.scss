@@ -1,0 +1,36 @@
+@import '../styles/size_variables';
+@import '../styles/color-variables';
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 60px 0;
+  .decimal-periodicy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media(max-width: $xs-max) {
+    text-align: center;
+    .currency {
+      font-size: 16px;
+      color: $dark-grey-color;
+    }
+    .integer {
+      color: $purple-color;
+      font-weight: bold;
+      font-size: 90px;
+      line-height: 0.8;
+    }
+    .decimal {
+      color: $purple-color;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .periodicy {
+      font-size: 16px;
+      line-height: 1;
+      color: $pink-color;
+    }
+  }
+}
