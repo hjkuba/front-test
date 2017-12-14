@@ -11,9 +11,9 @@ const PlanOption = (props) => {
         return;
     };
     return (
-        <div className="plan-option">
-            <div className="selected-radio-container">
-                <div className="selected-radio"></div>
+        <div className={`plan-option ${props.selected ? 'selected' : ''}`}>
+            <div onClick={props.onClick} className="radio-outer">
+                <div className="radio-inner"></div>
             </div>
             <div className="title">
                 {props.name}
