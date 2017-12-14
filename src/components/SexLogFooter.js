@@ -1,9 +1,11 @@
 import React from 'react';
+import { Modal } from 'react-bootstrap';
+import './SexLogFooter.scss';
 
 const SexLogFooter = (props) => (
-    <div>
+    <Modal.Footer className="sexlog-footer">
         {props.children}
-    </div>
+    </Modal.Footer>
 );
 
 export default SexLogFooter;

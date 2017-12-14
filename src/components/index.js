@@ -5,6 +5,7 @@ import SexLogFooter from './SexLogFooter';
 import PriceContainer from './PriceContainer';
 import PlanOptionsContainer from './PlanOptionsContainer';
 import PlanOption from './PlanOption';
+import SexLogButton from './SexLogButton';
 
 export { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter,
-    PriceContainer, PlanOptionsContainer, PlanOption };
+    SexLogButton, PriceContainer, PlanOptionsContainer, PlanOption };

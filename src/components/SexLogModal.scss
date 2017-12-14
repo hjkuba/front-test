@@ -6,8 +6,10 @@
     .modal-dialog {
       margin: 0;
       .modal-content {
-        height: 100vh;
+        min-height: 100vh;
         border: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         background-color: $background-color;
       }
     }

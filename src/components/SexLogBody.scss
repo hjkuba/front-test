@@ -1,5 +1,7 @@
+@import '../styles/size_variables';
+
 .sexlog-body {
   &.modal-body {
-    padding: 0;
+    padding: 0 5px $mobile-footer-height + 20px 5px;
   }
 }

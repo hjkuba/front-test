@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter,
+import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption } from './components';
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
                         </PlanOptionsContainer>
                     </SexLogBody>
                     <SexLogFooter>
-                        <button>Pagar</button>
+                        <SexLogButton>Próximo passo: pagamento</SexLogButton>
                     </SexLogFooter>
                 </SexLogModal>
             </div>
