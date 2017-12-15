@@ -9,6 +9,10 @@
   input, select {
     height: 38px;
     font-size: 13px;
+    &:focus {
+      border-color: $green-color;
+      box-shadow: none;
+    }
   }
   label {
     margin-bottom: 3px;
