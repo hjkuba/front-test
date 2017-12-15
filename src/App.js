@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Glyphicon, Alert } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
-    PriceContainer, PlanOptionsContainer, PlanOption, Notification } from './components';
+    PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader } from './components';
 import data from './server/data.json';
 
 class App extends Component {
@@ -80,7 +80,16 @@ class App extends Component {
                         returnButton={this.state.modalStep !== 1}
                         onReturn={() => this.setState({modalStep: this.state.modalStep - 1})}
                         title="Assine o Sexlog VIP"
-                    />
+                    >
+                        <SecondaryHeader
+                            show={this.state.modalStep !== 3}
+                            selectedButton={this.state.modalStep}
+                            leftButtonText="Escolha o plano ideal para você"
+                            onLeftClick={() => this.setState({modalStep: 1})}
+                            onRightClick={() => this.setState({modalStep: 2})}
+                            rightButtonText="Escolha a forma de pagamento"
+                        />
+                    </SexLogHeader>
                     <SexLogBody>
                         { this.renderBody() }
                     </SexLogBody>

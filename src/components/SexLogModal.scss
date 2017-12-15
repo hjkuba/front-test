@@ -2,6 +2,12 @@
 @import '../styles/color-variables';
 
 .sexlog-modal {
+  .modal-dialog {
+    .modal-content {
+      background-color: $background-color;
+      border: none;
+    }
+  }
   @media(max-width: $xs-max) {
     padding-left: 0 !important;
     .modal-dialog {
@@ -9,17 +15,14 @@
       .modal-content {
         width: 100%;
         min-height: 100vh;
-        border: none;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        background-color: $background-color;
       }
     }
   }
   @media(min-width: $sm-min) {
     .modal-dialog {
       .modal-content {
-        border: none;
         border-radius: 5px;
       }
     }
