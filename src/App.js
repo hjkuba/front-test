@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Glyphicon } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogButton,
-    PriceContainer, PlanOptionsContainer, PlanOption } from './components';
+    PriceContainer, PlanOptionsContainer, PlanOption, Notification } from './components';
 import data from './server/data.json';
 
 class App extends Component {
@@ -38,6 +39,16 @@ class App extends Component {
                             { this.renderPlans(data.plans)}
                         </PlanOptionsContainer>
                     </div>
+                );
+            case 3:
+                return (
+                    <div>
+                        <Notification
+                            icon={<Glyphicon glyph="ok-sign"/>}
+                            primaryText="Parabéns!"
+                            secondaryText="Você agora é um assinante Sexlog!"
+                        />
+                    </div>
                 )
         }
     }
@@ -46,7 +57,9 @@ class App extends Component {
             case 1:
                 return <SexLogButton onClick={() => this.setState({modalStep: 2})}>Próximo passo: pagamento</SexLogButton>;
             case 2:
-                return <SexLogButton>Concluir minha assinatura</SexLogButton>
+                return <SexLogButton onClick={() => this.setState({modalStep: 3})}>Concluir minha assinatura</SexLogButton>;
+            case 3:
+                return <SexLogButton color="purple" onClick={() => this.setState({showModal: false})}>Explorar o Sexlog</SexLogButton>;
         }
     }
     render() {
@@ -75,12 +88,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {/*<Modal.Header closeButton>*/}
-// {/*<Modal.Title>Modal heading</Modal.Title>*/}
-// {/*</Modal.Header>*/}
-// {/*<Modal.Body>*/}
-// {/*<h4>Text in a modal</h4>*/}
-// {/*</Modal.Body>*/}
-// {/*<Modal.Footer>*/}
-// {/*</Modal.Footer>*/}
