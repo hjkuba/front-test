@@ -15,12 +15,12 @@ const SexLogForm = (props) => (
         <FormGroup controlId="formControlsSelect">
             <ControlLabel>Validade</ControlLabel>
             <div>
-                <FormControl className="select" componentClass="select" placeholder="Mês">
-                    <option disabled value="" selected>Mês</option>
+                <FormControl className="select" componentClass="select" placeholder="Mês" defaultValue="">
+                    <option disabled value="">Mês</option>
                     <option value="other">...</option>
                 </FormControl>
-                <FormControl className="select" componentClass="select" placeholder="Ano">
-                    <option disabled value="" selected>Ano</option>
+                <FormControl className="select" componentClass="select" placeholder="Ano" defaultValue="">
+                    <option disabled value="">Ano</option>
                     <option value="other">...</option>
                 </FormControl>
             </div>
