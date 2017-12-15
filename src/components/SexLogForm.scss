@@ -1,0 +1,38 @@
+@import '../styles/size_variables';
+@import '../styles/color-variables';
+
+.sexlog-form {
+  padding: 30px 5px 0 5px;
+  .form-group {
+    margin-bottom: 18px;
+  }
+  input, select {
+    height: 38px;
+    font-size: 13px;
+  }
+  label {
+    margin-bottom: 3px;
+    font-weight: normal;
+    color: $dark-grey-color;
+    font-size: 15px;
+  }
+  select {
+    color: $dark-grey-color;
+    margin-right: 10px;
+  }
+  .select {
+    display: inline-block;
+    width: 80px;
+  }
+  .security-code-input {
+    width: 172px;
+  }
+  .alert {
+    font-size: 13px;
+    text-align: center;
+    background-color: $alert-warning-background-color;
+    color: $alert-warning-text-color;
+    border-color: $alert-warning-border-color;
+    margin: 0;
+  }
+}

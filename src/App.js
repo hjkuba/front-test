@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap';
-import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogButton,
+import { Glyphicon, Alert } from 'react-bootstrap';
+import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption, Notification } from './components';
 import data from './server/data.json';
 
@@ -38,6 +38,12 @@ class App extends Component {
                         <PlanOptionsContainer>
                             { this.renderPlans(data.plans)}
                         </PlanOptionsContainer>
+                    </div>
+                );
+            case 2:
+                return (
+                    <div>
+                        <SexLogForm/>
                     </div>
                 );
             case 3:
