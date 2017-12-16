@@ -13,6 +13,9 @@ class App extends Component {
             modalStep: 1
         };
     }
+    onChangeForm(key, value) {
+        this.setState({[key]: value});
+    }
     renderPlans(plans) {
         return plans.map((plan, index) => (
             <PlanOption
@@ -50,7 +53,11 @@ class App extends Component {
             case 2:
                 return (
                     <Grid style={{paddingLeft: 5, paddingRight: 5}} fluid>
-                        <SexLogForm plan={this.state.selectedPlan}/>
+                        <SexLogForm
+                            onChangeForm={this.onChangeForm.bind(this)}
+                            formState={this.state}
+                            plan={this.state.selectedPlan}
+                        />
                     </Grid>
                 );
             case 3:
