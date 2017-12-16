@@ -11,7 +11,10 @@ const PlanOption = (props) => {
         return;
     };
     return (
+
+
         <div className={`plan-option ${props.selected ? 'selected' : ''}`}>
+            <div className="triangle"></div>
             <div onClick={props.onClick} className="radio-outer">
                 <div className="radio-inner"></div>
             </div>
@@ -25,6 +28,7 @@ const PlanOption = (props) => {
                 </span>
             </div>
         </div>
+
     );
 }
 

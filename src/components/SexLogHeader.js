@@ -13,11 +13,14 @@ const SexLogHeader = (props) => {
             : null
     );
     return (
-        <Modal.Header className="sexlog-header" closeButton>
-            { renderReturnButton() }
-            <Modal.Title>{props.title}</Modal.Title>
-        </Modal.Header>
+        <div>
+            <Modal.Header className="sexlog-header" closeButton>
+                { renderReturnButton() }
+                <Modal.Title>{props.title}</Modal.Title>
+            </Modal.Header>
+            { props.children }
+        </div>
     );
-}
+};
 
 export default SexLogHeader;

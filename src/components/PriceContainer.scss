@@ -1,17 +1,16 @@
-@import '../styles/size_variables';
+@import '../styles/size-variables';
 @import '../styles/color-variables';
 
 .price-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px 0 60px 0;
-  .decimal-periodicy-container {
+  padding: 50px 100px;
+  .price-value {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  @media(max-width: $xs-max) {
-    text-align: center;
+    justify-content: center;
+    .decimal-periodicy-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
     .currency {
       font-size: 16px;
       color: $dark-grey-color;
@@ -31,6 +30,30 @@
       font-size: 16px;
       line-height: 1;
       color: $pink-color;
+    }
+  }
+  @media(max-width: $sm-max) {
+    .price-description {
+      display: none;
+    }
+  }
+  @media(min-width: $md-min) {
+    .price-description {
+      margin-top: 40px;
+      padding-top: 10px;
+      border-top: 2px dotted $medium-grey-color;
+      .payment-description {
+        display: flex;
+        color: $dark-grey-color;
+        margin-bottom: 8px;
+        img {
+          margin-right: 8px;
+        }
+        p {
+          font-size: 13px;
+          margin: 0;
+        }
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-@import '../styles/size_variables';
+@import '../styles/size-variables';
 @import '../styles/color-variables';
 
 .sexlog-footer {
@@ -11,6 +11,15 @@
       padding: 0;
       position: absolute;
       bottom: 0;
+    }
+  }
+  @media(min-width: $sm-min) {
+    &.modal-footer {
+      padding: 10px 45px;
+    }
+
+    &.hideOnLarge {
+      display: none;
     }
   }
 }

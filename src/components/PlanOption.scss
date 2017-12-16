@@ -1,4 +1,4 @@
-@import '../styles/size_variables';
+@import '../styles/size-variables';
 @import '../styles/color-variables';
 
 .plan-option {
@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   padding: 20px 12px;
-  margin: 5px 0;
+  margin-bottom: 5px;
   background-color: white;
   border: 1px solid $medium-grey-color;
   border-radius: 6px;
@@ -64,6 +64,23 @@
       border: 2px solid white;
       .radio-inner {
         background: white;
+      }
+    }
+    .triangle {
+      position: absolute;
+      left: -10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 10px 12px 0;
+      border-color: transparent $purple-color transparent transparent;
+      z-index: 1;
+    }
+  }
+  @media(max-width: $sm-max) {
+    &.selected {
+      .triangle {
+        display: none;
       }
     }
   }

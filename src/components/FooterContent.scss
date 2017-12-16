@@ -1,0 +1,21 @@
+@import '../styles/size-variables';
+@import '../styles/color-variables';
+
+.footer-content {
+  width: 100%;
+  @media(max-width: $xs-max) {
+    display: flex;
+  }
+  @media(max-width: $sm-max) {
+    text-align: center;
+    .secure-stamp {
+      display: none;
+    }
+  }
+  @media(min-width: $md-min) {
+    .secure-stamp {
+      float: left;
+      padding: 10px 0;
+    }
+  }
+}

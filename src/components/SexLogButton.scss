@@ -1,5 +1,5 @@
 @import '../styles/color-variables';
-@import '../styles/size_variables';
+@import '../styles/size-variables';
 
 .sexlog-button {
   color: white;
@@ -10,5 +10,10 @@
   border: none;
   &.purple {
     background-color: $purple-color;
+  }
+  @media(min-width: $sm-min) {
+    border-radius: 5px;
+    padding: 15px 83px;
+    flex-grow: 0;
   }
 }
