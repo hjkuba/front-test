@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Glyphicon, Alert } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader } from './components';
 import data from './server/data.json';
@@ -53,6 +53,8 @@ class App extends Component {
                             icon={<Glyphicon glyph="ok-sign"/>}
                             primaryText="Parabéns!"
                             secondaryText="Você agora é um assinante Sexlog!"
+                            buttonText="Explorar o Sexlog"
+                            onButtonClick={() => this.setState({showModal: false})}
                         />
                     </div>
                 )
@@ -70,8 +72,8 @@ class App extends Component {
     }
     render() {
         return (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <SexLogButton onClick={() => this.setState({showModal: true})}>Open Modal</SexLogButton>
+            <div style={{display: 'flex', justifyContent: 'center', paddingTop: 40}}>
+                <button style={styles.buttonStyles} onClick={() => this.setState({showModal: true})}>Open Modal</button>
                 <SexLogModal
                     show={this.state.showModal}
                     onHide={() => this.setState({showModal: false})}
@@ -93,7 +95,9 @@ class App extends Component {
                     <SexLogBody>
                         { this.renderBody() }
                     </SexLogBody>
-                    <SexLogFooter>
+                    <SexLogFooter
+                        hideOnLarge={this.state.modalStep === 3}
+                    >
                         { this.renderFooter() }
                     </SexLogFooter>
                 </SexLogModal>
@@ -101,5 +105,16 @@ class App extends Component {
         );
     }
 }
+
+const styles = {
+    buttonStyles: {
+        backgroundColor: '#49cba4',
+        color: 'white',
+        border: 'none',
+        fontWeight: 'bold',
+        borderRadius: 5,
+        padding: '10px 40px'
+    }
+};
 
 export default App;

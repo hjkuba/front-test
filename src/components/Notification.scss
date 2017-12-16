@@ -1,4 +1,5 @@
 @import '../styles/color-variables';
+@import '../styles/size-variables';
 
 .notification {
   display: flex;
@@ -12,11 +13,30 @@
   }
   p {
     text-align: center;
-    font-size: 22px;
     margin: 0;
     color: $dark-grey-color;
   }
   .primary {
     font-weight: bold;
+  }
+  .button-container {
+
+  }
+  @media(max-width: $xs-max) {
+    .button-container {
+      display: none;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+  @media(min-width: $sm-min) {
+    .button-container {
+      margin-top: 40px;
+    }
+    p {
+      font-size: 32px;
+      line-height: 1.2;
+    }
   }
 }
