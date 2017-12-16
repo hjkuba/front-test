@@ -2,9 +2,21 @@ import React from 'react';
 import { Form, Row, ControlLabel, InputGroup, FormControl, Alert, Col } from 'react-bootstrap';
 import './SexLogForm.scss';
 import svg from '../img/icon-credit-card.svg';
+import months from '../data/months';
+import years from '../data/years';
 
 const SexLogForm = (props) => {
     const { creditCardNumber, month, year, titularName, securityCode } = props.formState;
+    const renderMonths = () => (
+        months.map((month, index) => (
+            <option key={index} value={month.value}>{month.name}</option>
+        ))
+    );
+    const renderYears = () => (
+        years.map((year, index) => (
+            <option key={index} value={year}>{year}</option>
+        ))
+    );
     return (
         <Form className="sexlog-form">
             <Row className="chosen-plan-container">
@@ -20,7 +32,7 @@ const SexLogForm = (props) => {
                         <FormControl
                             value={creditCardNumber ? creditCardNumber : ''}
                             onChange={(e, value) => props.onChangeForm('creditCardNumber', e.target.value)}
-                            type="text"
+                            type="number"
                             placeholder="Número do Cartão"
                         />
                     </InputGroup>
@@ -36,7 +48,7 @@ const SexLogForm = (props) => {
                             placeholder="Mês"
                         >
                             <option disabled value="">Mês</option>
-                            <option value="other">...</option>
+                            { renderMonths() }
                         </FormControl>
                         <FormControl
                             value={year ? year : ''}
@@ -46,7 +58,7 @@ const SexLogForm = (props) => {
                             placeholder="Ano"
                         >
                             <option disabled value="">Ano</option>
-                            <option value="other">...</option>
+                            { renderYears() }
                         </FormControl>
                     </div>
                 </Col>
@@ -63,6 +75,7 @@ const SexLogForm = (props) => {
                 <Col md={4}>
                     <ControlLabel>Código de Segurança</ControlLabel>
                     <FormControl
+                        type="number"
                         value={securityCode ? securityCode : ''}
                         onChange={(e, value) => props.onChangeForm('securityCode', e.target.value)}
                         className="security-code-input"
