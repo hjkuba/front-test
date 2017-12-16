@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Glyphicon, Grid, Row, Col } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
-    PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader } from './components';
+    PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader, FooterContent } from './components';
 import data from './server/data.json';
 
 class App extends Component {
@@ -49,9 +49,9 @@ class App extends Component {
                 );
             case 2:
                 return (
-                    <div>
-                        <SexLogForm/>
-                    </div>
+                    <Grid style={{paddingLeft: 5, paddingRight: 5}} fluid>
+                        <SexLogForm plan={this.state.selectedPlan}/>
+                    </Grid>
                 );
             case 3:
                 return (
@@ -70,9 +70,17 @@ class App extends Component {
     renderFooter() {
         switch(this.state.modalStep) {
             case 1:
-                return <SexLogButton onClick={() => this.setState({modalStep: 2})}>Próximo passo: pagamento</SexLogButton>;
+                return (
+                    <FooterContent
+                        button={<SexLogButton onClick={() => this.setState({modalStep: 2})}>Próximo passo: pagamento</SexLogButton>}
+                    />
+                );
             case 2:
-                return <SexLogButton onClick={() => this.setState({modalStep: 3})}>Concluir minha assinatura</SexLogButton>;
+                return (
+                    <FooterContent
+                        button={<SexLogButton onClick={() => this.setState({modalStep: 3})}>Concluir minha assinatura</SexLogButton>}
+                    />
+                );
             case 3:
                 return <SexLogButton color="purple" onClick={() => this.setState({showModal: false})}>Explorar o Sexlog</SexLogButton>;
         }

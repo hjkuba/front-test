@@ -2,8 +2,7 @@
 @import '../styles/color-variables';
 
 .sexlog-form {
-  padding: 30px 5px 0 5px;
-  .form-group {
+  .input-group, .form-control {
     margin-bottom: 18px;
   }
   input, select {
@@ -20,16 +19,13 @@
     color: $dark-grey-color;
     font-size: 15px;
   }
-  select {
+  .select {
     color: $dark-grey-color;
     margin-right: 10px;
-  }
-  .select {
     display: inline-block;
-    width: 80px;
-  }
-  .security-code-input {
-    width: 172px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   .alert {
     font-size: 13px;
@@ -38,5 +34,43 @@
     color: $alert-warning-text-color;
     border-color: $alert-warning-border-color;
     margin: 0;
+  }
+  @media(max-width: $xs-max) {
+    padding: 30px 5px 0 5px;
+  }
+  @media(min-width: $sm-min) and (max-width: $sm-max) {
+    padding: 30px 5px 30px 5px;
+  }
+  @media(max-width: $sm-max) {
+    .chosen-plan-container {
+      display: none;
+    }
+    .select {
+      width: 80px;
+    }
+    .security-code-input {
+      width: 172px;
+    }
+  }
+  @media(min-width: $md-min) {
+    padding: 40px 140px 60px 140px;
+    .chosen-plan-container {
+      .chosen-plan {
+        padding: 12px 0;
+        border-bottom: 1px dashed $medium-grey-color;
+        margin-bottom: 15px;
+        color: $medium-grey-color2;
+        font-size: 15px;
+        span {
+          color: black;
+        }
+      }
+    }
+    .select {
+      width: calc(50% - 5px);
+    }
+    .alert {
+      margin-top: 10px;
+    }
   }
 }

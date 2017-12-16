@@ -9,7 +9,8 @@ import SexLogButton from './SexLogButton';
 import SexLogForm from './SexLogForm';
 import Notification from './Notification';
 import SecondaryHeader from './SecondaryHeader';
+import FooterContent from './FooterContent';
 
 export { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm,
     SexLogButton, PriceContainer, PlanOptionsContainer, PlanOption,
-    Notification, SecondaryHeader };
+    Notification, SecondaryHeader, FooterContent };

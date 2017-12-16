@@ -25,7 +25,7 @@ const PriceContainer = (props) => {
                 case 'boleto bancário':
                     icon = boleto;
             }
-        return <div className="payment-description"><img src={icon}/><p key={index}>{paymentObj.text}<b>{paymentObj.highlight}</b></p></div>;
+        return <div key={index} className="payment-description"><img src={icon}/><p>{paymentObj.text}<b>{paymentObj.highlight}</b></p></div>;
         }
     );
     return (
