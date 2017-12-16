@@ -1,4 +1,5 @@
 import React from 'react';
+import './PlanOptionsContainer.scss';
 
 const PlanOptionsContainer = (props) => (
     <div className="plan-options-container">

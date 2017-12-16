@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import { Glyphicon, Grid, Row, Col } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader } from './components';
 import data from './server/data.json';
@@ -28,17 +28,24 @@ class App extends Component {
         switch(this.state.modalStep) {
             case 1:
                 return (
-                    <div>
-                        <PriceContainer
-                            currency={this.state.selectedPlan.price.currency}
-                            integer={this.state.selectedPlan.price.integer}
-                            decimal="90"
-                            periodicy="/mês"
-                        />
-                        <PlanOptionsContainer>
-                            { this.renderPlans(data.plans)}
-                        </PlanOptionsContainer>
-                    </div>
+                    <Grid style={{paddingLeft: 5, paddingRight: 5}} fluid>
+                        <Row>
+                            <Col md={6}>
+                                <PriceContainer
+                                    currency={this.state.selectedPlan.price.currency}
+                                    integer={this.state.selectedPlan.price.integer}
+                                    decimal={this.state.selectedPlan.price.decimal}
+                                    periodicy={this.state.selectedPlan.price.periodicy}
+                                    payments={this.state.selectedPlan.payments}
+                                />
+                            </Col>
+                            <Col md={6}>
+                                <PlanOptionsContainer>
+                                    { this.renderPlans(data.plans)}
+                                </PlanOptionsContainer>
+                            </Col>
+                        </Row>
+                    </Grid>
                 );
             case 2:
                 return (
