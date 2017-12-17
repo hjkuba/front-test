@@ -1,0 +1,43 @@
+@import '../styles/size-variables';
+@import '../styles/color-variables';
+
+.secondary-header {
+  display: flex;
+  border-bottom: 1px solid $grey-color;
+  height: 49px;
+  .button {
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: $light-grey-color;
+    color: $medium-grey-color2;
+    &-content {
+      margin: 14px;
+      font-size: 15px;
+    }
+    .triangle {
+      position: absolute;
+      top: 0;
+      right: -18px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 24.5px 0 24.5px 18px;
+      border-color: transparent transparent transparent $light-grey-color;
+      z-index: 1;
+    }
+    &.selected {
+      background-color: white;
+      color: $purple-color;
+      cursor: default;
+      &.left-button .triangle {
+        border-color: transparent transparent transparent white;
+      }
+    }
+  }
+  @media(max-width: $xs-max) {
+    display: none;
+  }
+}

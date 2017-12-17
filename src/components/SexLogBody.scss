@@ -1,0 +1,12 @@
+@import '../styles/size-variables';
+
+.sexlog-body {
+  &.modal-body {
+    padding: 0;
+  }
+  @media(max-width: $xs-max) {
+    &.modal-body {
+      padding: 0 0 $mobile-footer-height + 20px 0;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../styles/color-variables';
+@import '../styles/size-variables';
+
+.sexlog-button {
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  background-color: $green-color;
+  flex-grow: 1;
+  border: none;
+  &.purple {
+    background-color: $purple-color;
+    border: none;
+  }
+  @media(min-width: $sm-min) {
+    border-radius: 5px;
+    padding: 15px 83px;
+    flex-grow: 0;
+    border: 2px solid $medium-green-color;
+  }
+}
