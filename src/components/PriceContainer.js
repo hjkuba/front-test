@@ -24,8 +24,11 @@ const PriceContainer = (props) => {
                     break;
                 case 'boleto bancário':
                     icon = boleto;
+                    break;
+                default:
+                    icon = null;
             }
-        return <div key={index} className="payment-description"><img src={icon}/><p>{paymentObj.text}<b>{paymentObj.highlight}</b></p></div>;
+            return <div key={index} className="payment-description"><img src={icon} alt="icon"/><p>{paymentObj.text}<b>{paymentObj.highlight}</b></p></div>;
         }
     );
     return (
@@ -43,5 +46,5 @@ const PriceContainer = (props) => {
             </div>
         </div>
     );
-}
+};
 export default PriceContainer;

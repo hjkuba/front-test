@@ -17,6 +17,10 @@ const SexLogForm = (props) => {
             <option key={index} value={year}>{year}</option>
         ))
     );
+    const renderError = (errorType) => {
+        if(props.error && props.error[errorType])
+            return <span className="error-notification">{props.error[errorType]}</span>;
+    };
     return (
         <Form className="sexlog-form">
             <Row className="chosen-plan-container">
@@ -28,7 +32,7 @@ const SexLogForm = (props) => {
                 <Col md={8}>
                     <ControlLabel>Número do cartão</ControlLabel>
                     <InputGroup>
-                        <InputGroup.Addon><img src={svg}/></InputGroup.Addon>
+                        <InputGroup.Addon><img src={svg} alt="credit card"/></InputGroup.Addon>
                         <FormControl
                             value={creditCardNumber ? creditCardNumber : ''}
                             onChange={(e, value) => props.onChangeForm('creditCardNumber', e.target.value)}
@@ -36,6 +40,7 @@ const SexLogForm = (props) => {
                             placeholder="Número do Cartão"
                         />
                     </InputGroup>
+                    { renderError('creditCardNumber') }
                 </Col>
                 <Col md={4}>
                     <ControlLabel>Validade</ControlLabel>
@@ -61,6 +66,7 @@ const SexLogForm = (props) => {
                             { renderYears() }
                         </FormControl>
                     </div>
+                    { renderError('expirationDate') }
                 </Col>
             </Row>
             <Row>
@@ -71,6 +77,7 @@ const SexLogForm = (props) => {
                         onChange={(e, value) => props.onChangeForm('titularName', e.target.value)}
                         placeholder="Nome do Titular"
                     />
+                    { renderError('titularName') }
                 </Col>
                 <Col md={4}>
                     <ControlLabel>Código de Segurança</ControlLabel>
@@ -81,6 +88,7 @@ const SexLogForm = (props) => {
                         className="security-code-input"
                         placeholder="000"
                     />
+                    { renderError('securityCode') }
                 </Col>
             </Row>
             <Row>
