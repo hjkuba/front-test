@@ -4,7 +4,7 @@ import './FooterContent.scss';
 
 const FooterContent = (props) => (
     <div className="footer-content">
-        <img className="secure-stamp" src={secureIcon}/>
+        <img className="secure-stamp" src={secureIcon} alt="security stamp"/>
         {props.button}
     </div>
 );

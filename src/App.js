@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
+import cardValidator from 'card-validator';
 import { Glyphicon, Grid, Row, Col } from 'react-bootstrap';
 import { SexLogModal, SexLogHeader, SexLogBody, SexLogFooter, SexLogForm, SexLogButton,
     PriceContainer, PlanOptionsContainer, PlanOption, Notification, SecondaryHeader, FooterContent } from './components';
@@ -12,6 +14,47 @@ class App extends Component {
             selectedPlan: data.plans[0],
             modalStep: 1
         };
+    }
+    onChangeForm(key, value) {
+        this.setState({[key]: value});
+    }
+    validateDate(month, year) {
+        if(!month || !year) return true;
+        const expirationDate = new Date(year, month);
+        if(expirationDate > new Date()) return true;
+        return false;
+    }
+    validateCreditCard(number) {
+        if(cardValidator.number(number).isPotentiallyValid) {
+            return true;
+        }
+        return false;
+    }
+    validateCVV(cvv) {
+        if(cardValidator.cvv(cvv).isPotentiallyValid) {
+            return true;
+        }
+        return false;
+    }
+    validate() {
+        const { creditCardNumber, month, year, titularName, securityCode } = this.state;
+        const error = {};
+        if(!this.validateDate(month, year)) error.expirationDate = "A validade do cartão expirou";
+        if(!this.validateCreditCard(creditCardNumber)) error.creditCardNumber = "Esse número de cartão é inválido";
+        if(!this.validateCVV(securityCode)) error.securityCode = "Esse código de segurança é inválido";
+        if(!creditCardNumber) error.creditCardNumber = "O número do cartão de crédito é obrigatório";
+        if(!month || !year) error.expirationDate = "A validade é obrigatória";
+        if(!titularName) error.titularName = "O nome do titular é obrigatório";
+        if(!securityCode) error.securityCode = "O código de segurança é obrigatório";
+        return error;
+    }
+    subscribe() {
+        const error = this.validate();
+        if(!_.isEmpty(error)) {
+            this.setState({ error });
+            return;
+        }
+        this.setState({modalStep: 3});
     }
     renderPlans(plans) {
         return plans.map((plan, index) => (
@@ -50,7 +93,12 @@ class App extends Component {
             case 2:
                 return (
                     <Grid style={{paddingLeft: 5, paddingRight: 5}} fluid>
-                        <SexLogForm plan={this.state.selectedPlan}/>
+                        <SexLogForm
+                            onChangeForm={this.onChangeForm.bind(this)}
+                            formState={this.state}
+                            plan={this.state.selectedPlan}
+                            error={this.state.error}
+                        />
                     </Grid>
                 );
             case 3:
@@ -64,7 +112,9 @@ class App extends Component {
                             onButtonClick={() => this.setState({showModal: false})}
                         />
                     </div>
-                )
+                );
+            default:
+                return;
         }
     }
     renderFooter() {
@@ -78,11 +128,13 @@ class App extends Component {
             case 2:
                 return (
                     <FooterContent
-                        button={<SexLogButton onClick={() => this.setState({modalStep: 3})}>Concluir minha assinatura</SexLogButton>}
+                        button={<SexLogButton onClick={this.subscribe.bind(this)}>Concluir minha assinatura</SexLogButton>}
                     />
                 );
             case 3:
                 return <SexLogButton color="purple" onClick={() => this.setState({showModal: false})}>Explorar o Sexlog</SexLogButton>;
+            default:
+                return;
         }
     }
     render() {
