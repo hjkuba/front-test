@@ -25,13 +25,13 @@ class App extends Component {
         return false;
     }
     validateCreditCard(number) {
-        if(cardValidator.number(number).isPotentiallyValid) {
+        if(cardValidator.number(number).isValid) {
             return true;
         }
         return false;
     }
     validateCVV(cvv) {
-        if(cardValidator.cvv(cvv).isPotentiallyValid) {
+        if(cardValidator.cvv(cvv).isValid || cardValidator.cvv(cvv, 4).isValid) {
             return true;
         }
         return false;
